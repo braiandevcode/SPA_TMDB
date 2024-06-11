@@ -41,14 +41,14 @@ export async function Router() {
   } else if (hash === "#/peliculas") {
     //CONSULTA A API PARA MOSTRAR TODAS LAS PALICULAS
     await ajax({
-      url: `/all-films/${value}`,
+      url: `http://localhost:3000/all-films/${value}`,
       cbSuccess:(allPosts) => {
         renderNewAllDataFilms(allPosts);
       },
     });
   } else {
     await ajax({ 
-      url:`/movie/${localStorage.getItem("video_id")}/videos`, 
+      url:`http://localhost:3000/movie/${localStorage.getItem("video_id")}/videos`, 
       cbSuccess:(data)=>{
         if(data.results.length == 0){
           console.warn("No hay videos para esta pelicula...")
